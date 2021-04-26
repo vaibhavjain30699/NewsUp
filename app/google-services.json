@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "643955843732",
+    "firebase_url": "https://newagent-5dac7.firebaseio.com",
+    "project_id": "newagent-5dac7",
+    "storage_bucket": "newagent-5dac7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643955843732:android:b6f84a4857832051224a81",
+        "android_client_info": {
+          "package_name": "com.vaibhav.newsup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643955843732-rlqum54hud24pl27rrnu2rru9cticgja.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vaibhav.newsup",
+            "certificate_hash": "e2e7de8911ed9c50d4f19a79d16c9fdbd7ee1ba8"
+          }
+        },
+        {
+          "client_id": "643955843732-i9fmhsvps8u6kme4jr60nvgq9e0425no.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTpDAYE4thq3pcXHk2fXjs686aJ-C3STU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643955843732-i9fmhsvps8u6kme4jr60nvgq9e0425no.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

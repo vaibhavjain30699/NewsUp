@@ -45,6 +45,7 @@ public class NewsInfo extends AppCompatActivity implements GestureDetector.OnGes
         content = findViewById(R.id.content);
         url = findViewById(R.id.url);
         image = findViewById(R.id.image);
+        image.setTransitionName(getIntent().getExtras().getString("transitionName"));
 
         title.setText(getIntent().getExtras().getString("Title"));
         content.setText(getIntent().getExtras().getString("Content"));

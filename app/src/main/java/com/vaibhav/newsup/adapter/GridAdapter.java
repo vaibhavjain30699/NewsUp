@@ -1,8 +1,11 @@
 package com.vaibhav.newsup.adapter;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -61,6 +64,7 @@ public class GridAdapter extends BaseAdapter implements Filterable {
             cardView = convertView.findViewById(R.id.cardview);
             title = convertView.findViewById(R.id.title);
             image = convertView.findViewById(R.id.image);
+            image.setTransitionName(String.valueOf(position));
 
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -72,10 +76,12 @@ public class GridAdapter extends BaseAdapter implements Filterable {
                     intent.putExtra("Image", list.get(position).getUrlToImage());
                     intent.putExtra("URL", list.get(position).getUrl());
                     intent.putExtra("position",position);
+                    intent.putExtra("transitionName",String.valueOf(position));
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("list", (Serializable) list);
                     intent.putExtra("BUNDLE",bundle);
-                    context.startActivity(intent);
+                    ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context,image,String.valueOf(position));
+                    context.startActivity(intent,activityOptionsCompat.toBundle());
 
                 }
             });

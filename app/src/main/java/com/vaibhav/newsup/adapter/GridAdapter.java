@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.vaibhav.newsup.models.TopHeadlines;
 import com.vaibhav.newsup.screens.NewsInfo;
 import com.vaibhav.newsup.R;
 

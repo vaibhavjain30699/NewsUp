@@ -43,7 +43,7 @@ public class login extends AppCompatActivity {
         final FirebaseUser user1 = mauth.getCurrentUser();
         if(user1!=null){
 
-            Intent i = new Intent(com.vaibhav.newsup.login.this, MainActivity.class);
+            Intent i = new Intent(com.vaibhav.newsup.screens.login.this, MainActivity.class);
             i.putExtra("id",user1.getEmail());
             startActivity(i);
             finish();
@@ -100,7 +100,7 @@ public class login extends AppCompatActivity {
                 String u,p;
                 u = user.getText().toString();
                 p = pass.getText().toString();
-                final ProgressDialog progressDialog = new ProgressDialog(com.vaibhav.newsup.login.this);
+                final ProgressDialog progressDialog = new ProgressDialog(login.this);
                 progressDialog.setMessage("Please wait...");
                 progressDialog.show();
                 mauth.signInWithEmailAndPassword(u,p)
@@ -108,9 +108,9 @@ public class login extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    Toast.makeText(com.vaibhav.newsup.login.this,"Success",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(com.vaibhav.newsup.screens.login.this,"Success",Toast.LENGTH_SHORT).show();
                                     progressDialog.cancel();
-                                    Intent ii = new Intent(com.vaibhav.newsup.login.this,MainActivity.class);
+                                    Intent ii = new Intent(com.vaibhav.newsup.screens.login.this,MainActivity.class);
                                     ii.putExtra("id",mauth.getCurrentUser().getEmail());
                                     startActivity(ii);
                                     finish();
@@ -130,7 +130,7 @@ public class login extends AppCompatActivity {
         register_redirect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent o = new Intent(com.vaibhav.newsup.login.this, register.class);
+                Intent o = new Intent(com.vaibhav.newsup.screens.login.this, register.class);
                 startActivity(o);
                 finish();
             }

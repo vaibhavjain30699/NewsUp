@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_logoo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreen">
+        <activity android:name=".screens.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".screens.register" />
-        <activity android:name=".login">
+        <activity android:name=".screens.login">
         </activity>
         <activity android:name=".screens.NewsInfo" />
         <activity android:name=".Categories" />

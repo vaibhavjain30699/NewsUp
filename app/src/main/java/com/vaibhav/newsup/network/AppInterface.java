@@ -1,5 +1,7 @@
 package com.vaibhav.newsup.network;
 
+import com.vaibhav.newsup.models.TopHeadlines;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 

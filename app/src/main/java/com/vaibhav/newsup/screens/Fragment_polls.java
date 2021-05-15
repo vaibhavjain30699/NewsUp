@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.vaibhav.newsup.R;
+import com.vaibhav.newsup.adapter.Polls_adapter;
+import com.vaibhav.newsup.models.Polls;
 
 import org.w3c.dom.Text;
 

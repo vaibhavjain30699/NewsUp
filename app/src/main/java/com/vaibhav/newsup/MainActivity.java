@@ -55,7 +55,7 @@ import java.util.List;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
         searchEdit = findViewById(R.id.searchEditText);
         backButton = findViewById(R.id.backButton);
         relativeLayout = findViewById(R.id.RelativeLayout);
@@ -113,15 +113,15 @@ import java.util.List;
 //            }
 //        };
 
-        DrawerLayout drawer = findViewById(R.id.drawer);
-        NavigationView navigationView = findViewById(R.id.navigation);
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.open,R.string.close);
-        drawer.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
-
-        email_user = navigationView.getHeaderView(0).findViewById(R.id.emailid_user);
-        email_user.setText(getIntent().getStringExtra("id"));
+//        DrawerLayout drawer = findViewById(R.id.drawer);
+//        NavigationView navigationView = findViewById(R.id.navigation);
+//        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.open,R.string.close);
+//        drawer.addDrawerListener(actionBarDrawerToggle);
+//        actionBarDrawerToggle.syncState();
+//        navigationView.setNavigationItemSelectedListener(this);
+//
+//        email_user = navigationView.getHeaderView(0).findViewById(R.id.emailid_user);
+//        email_user.setText(getIntent().getStringExtra("id"));
 
         tabLayout = findViewById(R.id.TabLayout);
         tabLayout.setupWithViewPager(viewPager);
@@ -175,7 +175,6 @@ import java.util.List;
         viewPage_adapter.addFragment(new Fragment_three(),"Technology");
         viewPage_adapter.addFragment(new Fragment_four(),"Science");
         viewPage_adapter.addFragment(new Fragment_five(),"Health");
-        viewPage_adapter.addFragment(new Fragment_polls(),"Polls");
         viewPager.setAdapter(viewPage_adapter);
 
     }

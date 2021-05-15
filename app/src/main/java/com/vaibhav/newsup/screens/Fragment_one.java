@@ -22,6 +22,10 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.vaibhav.newsup.R;
+import com.vaibhav.newsup.adapter.GridAdapter;
+import com.vaibhav.newsup.models.TopHeadlines;
+import com.vaibhav.newsup.network.AppInterface;
+import com.vaibhav.newsup.network.AppUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

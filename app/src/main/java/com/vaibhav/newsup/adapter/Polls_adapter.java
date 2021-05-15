@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.vaibhav.newsup.R;
+import com.vaibhav.newsup.models.Polls;
 
 import java.util.List;
 

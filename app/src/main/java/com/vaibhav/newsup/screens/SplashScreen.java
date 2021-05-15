@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.vaibhav.newsup.MainActivity;
 import com.vaibhav.newsup.R;
+import com.vaibhav.newsup.TypeWriter;
 
 public class SplashScreen extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.vaibhav.newsup;
+package com.vaibhav.newsup.screens;
 
 import android.content.SharedPreferences;
 import android.nfc.TagLostException;
@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.vaibhav.newsup.R;
 
 import org.w3c.dom.Text;
 

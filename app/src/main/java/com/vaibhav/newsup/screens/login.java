@@ -1,4 +1,4 @@
-package com.vaibhav.newsup;
+package com.vaibhav.newsup.screens;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -19,6 +19,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.vaibhav.newsup.MainActivity;
+import com.vaibhav.newsup.R;
 
 public class login extends AppCompatActivity {
 
@@ -41,7 +43,7 @@ public class login extends AppCompatActivity {
         final FirebaseUser user1 = mauth.getCurrentUser();
         if(user1!=null){
 
-            Intent i = new Intent(com.vaibhav.newsup.login.this,MainActivity.class);
+            Intent i = new Intent(com.vaibhav.newsup.login.this, MainActivity.class);
             i.putExtra("id",user1.getEmail());
             startActivity(i);
             finish();
@@ -128,7 +130,7 @@ public class login extends AppCompatActivity {
         register_redirect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent o = new Intent(com.vaibhav.newsup.login.this,register.class);
+                Intent o = new Intent(com.vaibhav.newsup.login.this, register.class);
                 startActivity(o);
                 finish();
             }

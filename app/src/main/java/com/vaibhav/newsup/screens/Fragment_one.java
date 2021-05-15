@@ -1,10 +1,11 @@
-package com.vaibhav.newsup;
+package com.vaibhav.newsup.screens;
 
 import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +21,8 @@ import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import com.vaibhav.newsup.R;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,7 +35,7 @@ import retrofit2.Response;
 
 import static android.content.Context.SEARCH_SERVICE;
 
-public class Fragment_three extends Fragment {
+public class Fragment_one extends Fragment implements View.OnClickListener {
 
     private GridView gridView;
     private AppInterface appInterface;
@@ -41,47 +44,46 @@ public class Fragment_three extends Fragment {
     private SearchView searchEdit;
     private RelativeLayout relativeLayout;
     private Toolbar toolbar;
+    private AppBarLayout appBarLayout;
     private Button backButton;
     List<TopHeadlines.ArticlesBean> list = new ArrayList<>();
     List<String> dateInNews = new ArrayList<>();
     List<TopHeadlines.ArticlesBean> filter = new ArrayList<>();
+
+
+    public Fragment_one() {
+
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_one,container,false);
+        gridView = view.findViewById(R.id.categories);
+        progressBar = view.findViewById(R.id.progressBar);
+        relativeLayout = getActivity().findViewById(R.id.RelativeLayout);
+        toolbar = getActivity().findViewById(R.id.Toolbar);
+        searchEdit = getActivity().findViewById(R.id.searchEditText);
+        appBarLayout = getActivity().findViewById(R.id.appBarLayout);
+        appInterface = AppUtils.getApiService();
+        backButton = getActivity().findViewById(R.id.backButton);
+        setCategories(getContext());
+        gridView.setNumColumns(1);
+
+        return view;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         setRetainInstance(true);
-    }
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_three,container,false);
-        gridView = view.findViewById(R.id.categories);
-        progressBar = view.findViewById(R.id.progressBar);
-        relativeLayout = getActivity().findViewById(R.id.RelativeLayout);
-        toolbar = getActivity().findViewById(R.id.Toolbar);
-        searchEdit = getActivity().findViewById(R.id.searchEditText);
-        gridView.setNumColumns(1);
-        backButton = getActivity().findViewById(R.id.backButton);
-
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                filter.clear();
-                filter.addAll(list);
-                adapter.notifyDataSetChanged();
-            }
-        });
-
-        appInterface = AppUtils.getApiService();
-        setCategories(view.getContext());
-        return view;
     }
 
     public void setCategories(final Context context){
 
-        appInterface.getTechnologyNews().enqueue(new Callback<TopHeadlines>() {
+        appInterface.getGeneralNews().enqueue(new Callback<TopHeadlines>() {
             @Override
             public void onResponse(Call<TopHeadlines> call, Response<TopHeadlines> response) {
                 if(response.isSuccessful()) {
@@ -158,7 +160,7 @@ public class Fragment_three extends Fragment {
                 else {
                     filter.addAll(list);
                     adapter.notifyDataSetChanged();
-                }
+                }setHasOptionsMenu(true);
 
                 return false;
             }
@@ -171,10 +173,8 @@ public class Fragment_three extends Fragment {
                     for (int i = 0; i < list.size(); i++) {
                         TopHeadlines.ArticlesBean t = list. get(i);
                         if(t.getContent()!=null  &&  t.getTitle()!=null) {
-                            if(t.getContent()!=null  &&  t.getTitle()!=null) {
-                                if (t.getContent().toLowerCase().contains(s)  ||  t.getTitle().toLowerCase().contains(s))
-                                    filter.add(t);
-                            }
+                            if (t.getContent().toLowerCase().contains(s)  ||  t.getTitle().toLowerCase().contains(s))
+                                filter.add(t);
                         }
                     }
                     adapter.notifyDataSetChanged();
@@ -190,6 +190,8 @@ public class Fragment_three extends Fragment {
 
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -197,6 +199,7 @@ public class Fragment_three extends Fragment {
             if(relativeLayout.getVisibility()==View.GONE)
             {
                 relativeLayout.setVisibility(View.VISIBLE);
+                appBarLayout.setVisibility(View.GONE);
                 toolbar.setVisibility(View.GONE);
             }
             return true;
@@ -204,4 +207,23 @@ public class Fragment_three extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View v) {
+
+        if(v.getId()==R.id.backButton)
+        {
+            if(relativeLayout.getVisibility()== View.VISIBLE)
+            {
+                searchEdit.setIconified(true);
+                relativeLayout.setVisibility(View.GONE);
+                searchEdit.setVisibility(View.GONE);
+                backButton.setVisibility(View.GONE);
+                toolbar.setVisibility(View.VISIBLE);
+            }
+            filter.clear();
+            filter.addAll(list);
+            adapter.notifyDataSetChanged();
+        }
+
+    }
 }

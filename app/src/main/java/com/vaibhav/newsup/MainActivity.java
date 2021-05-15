@@ -23,8 +23,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Target;
-
-import org.w3c.dom.Text;
+import com.vaibhav.newsup.models.TopHeadlines;
+import com.vaibhav.newsup.network.AppInterface;
+import com.vaibhav.newsup.screens.Fragment_five;
+import com.vaibhav.newsup.screens.Fragment_four;
+import com.vaibhav.newsup.screens.Fragment_one;
+import com.vaibhav.newsup.screens.Fragment_polls;
+import com.vaibhav.newsup.screens.Fragment_three;
+import com.vaibhav.newsup.screens.Fragment_two;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;

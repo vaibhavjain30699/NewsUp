@@ -1,4 +1,4 @@
-package com.vaibhav.newsup;
+package com.vaibhav.newsup.network;
 
 import java.util.concurrent.TimeUnit;
 

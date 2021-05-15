@@ -1,4 +1,4 @@
-package com.vaibhav.newsup;
+package com.vaibhav.newsup.models;
 
 import android.util.Log;
 

@@ -1,4 +1,4 @@
-package com.vaibhav.newsup;
+package com.vaibhav.newsup.screens;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -19,6 +19,8 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+
+import com.vaibhav.newsup.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

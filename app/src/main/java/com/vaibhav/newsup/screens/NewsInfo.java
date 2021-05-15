@@ -1,4 +1,4 @@
-package com.vaibhav.newsup;
+package com.vaibhav.newsup.screens;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.vaibhav.newsup.R;
+import com.vaibhav.newsup.models.TopHeadlines;
 
 import java.util.ArrayList;
 import java.util.List;

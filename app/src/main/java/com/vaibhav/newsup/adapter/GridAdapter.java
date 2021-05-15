@@ -1,4 +1,4 @@
-package com.vaibhav.newsup;
+package com.vaibhav.newsup.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.vaibhav.newsup.screens.NewsInfo;
+import com.vaibhav.newsup.R;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,11 +1,8 @@
-package com.vaibhav.newsup;
+package com.vaibhav.newsup.adapter;
 
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +11,8 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.vaibhav.newsup.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Polls_adapter extends RecyclerView.Adapter<Polls_adapter.MyviewHolder> {

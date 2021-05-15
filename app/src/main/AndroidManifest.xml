@@ -20,10 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".register" />
+        <activity android:name=".screens.register" />
         <activity android:name=".login">
         </activity>
-        <activity android:name=".NewsInfo" />
+        <activity android:name=".screens.NewsInfo" />
         <activity android:name=".Categories" />
         <activity android:name=".MainActivity"></activity>
 

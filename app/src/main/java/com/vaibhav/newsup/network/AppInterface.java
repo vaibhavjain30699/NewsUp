@@ -1,4 +1,4 @@
-package com.vaibhav.newsup;
+package com.vaibhav.newsup.network;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

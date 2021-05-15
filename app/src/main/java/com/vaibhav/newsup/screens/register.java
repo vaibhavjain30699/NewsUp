@@ -1,4 +1,4 @@
-package com.vaibhav.newsup;
+package com.vaibhav.newsup.screens;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -18,7 +18,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.vaibhav.newsup.MainActivity;
+import com.vaibhav.newsup.R;
 
 public class register extends AppCompatActivity {
 
@@ -97,8 +98,8 @@ public class register extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    Toast.makeText(com.vaibhav.newsup.register.this,"Success",Toast.LENGTH_SHORT).show();
-                                    Intent ii = new Intent(com.vaibhav.newsup.register.this,MainActivity.class);
+                                    Toast.makeText(com.vaibhav.newsup.screens.register.this,"Success",Toast.LENGTH_SHORT).show();
+                                    Intent ii = new Intent(com.vaibhav.newsup.screens.register.this, MainActivity.class);
                                     progressDialog.cancel();
                                     ii.putExtra("id",mauth.getCurrentUser().getEmail());
                                     startActivity(ii);
@@ -119,7 +120,7 @@ public class register extends AppCompatActivity {
         login_redirect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent o = new Intent(com.vaibhav.newsup.register.this,login.class);
+                Intent o = new Intent(com.vaibhav.newsup.screens.register.this, login.class);
                 startActivity(o);
                 finish();
             }

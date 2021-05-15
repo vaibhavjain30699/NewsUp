@@ -1,9 +1,12 @@
-package com.vaibhav.newsup;
+package com.vaibhav.newsup.screens;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.vaibhav.newsup.MainActivity;
+import com.vaibhav.newsup.R;
 
 public class SplashScreen extends AppCompatActivity {
 

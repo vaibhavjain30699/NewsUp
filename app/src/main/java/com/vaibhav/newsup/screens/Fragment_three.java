@@ -1,11 +1,10 @@
-package com.vaibhav.newsup;
+package com.vaibhav.newsup.screens;
 
 import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -21,6 +20,8 @@ import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import com.vaibhav.newsup.R;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ import retrofit2.Response;
 
 import static android.content.Context.SEARCH_SERVICE;
 
-public class Fragment_two extends Fragment {
+public class Fragment_three extends Fragment {
 
     private GridView gridView;
     private AppInterface appInterface;
@@ -42,7 +43,6 @@ public class Fragment_two extends Fragment {
     private SearchView searchEdit;
     private RelativeLayout relativeLayout;
     private Toolbar toolbar;
-    private TabLayout tabLayout;
     private Button backButton;
     List<TopHeadlines.ArticlesBean> list = new ArrayList<>();
     List<String> dateInNews = new ArrayList<>();
@@ -58,14 +58,12 @@ public class Fragment_two extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_two,container,false);
+        View view = inflater.inflate(R.layout.fragment_three,container,false);
         gridView = view.findViewById(R.id.categories);
-        gridView.setScrollContainer(false);
         progressBar = view.findViewById(R.id.progressBar);
         relativeLayout = getActivity().findViewById(R.id.RelativeLayout);
         toolbar = getActivity().findViewById(R.id.Toolbar);
         searchEdit = getActivity().findViewById(R.id.searchEditText);
-        tabLayout = getActivity().findViewById(R.id.TabLayout);
         gridView.setNumColumns(1);
         backButton = getActivity().findViewById(R.id.backButton);
 
@@ -85,7 +83,7 @@ public class Fragment_two extends Fragment {
 
     public void setCategories(final Context context){
 
-        appInterface.getEntertainmentNews().enqueue(new Callback<TopHeadlines>() {
+        appInterface.getTechnologyNews().enqueue(new Callback<TopHeadlines>() {
             @Override
             public void onResponse(Call<TopHeadlines> call, Response<TopHeadlines> response) {
                 if(response.isSuccessful()) {
@@ -140,7 +138,7 @@ public class Fragment_two extends Fragment {
         inflater.inflate(R.menu.menu_main,menu);
         super.onCreateOptionsMenu(menu, inflater);
 
-        final SearchManager searchManager = (SearchManager) getActivity().getSystemService(SEARCH_SERVICE);
+        SearchManager searchManager = (SearchManager) getActivity().getSystemService(SEARCH_SERVICE);
         searchEdit.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
 
         searchEdit.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -175,8 +173,10 @@ public class Fragment_two extends Fragment {
                     for (int i = 0; i < list.size(); i++) {
                         TopHeadlines.ArticlesBean t = list. get(i);
                         if(t.getContent()!=null  &&  t.getTitle()!=null) {
-                            if (t.getContent().toLowerCase().contains(s)  ||  t.getTitle().toLowerCase().contains(s))
-                                filter.add(t);
+                            if(t.getContent()!=null  &&  t.getTitle()!=null) {
+                                if (t.getContent().toLowerCase().contains(s)  ||  t.getTitle().toLowerCase().contains(s))
+                                    filter.add(t);
+                            }
                         }
                     }
                     adapter.notifyDataSetChanged();
@@ -199,7 +199,6 @@ public class Fragment_two extends Fragment {
             if(relativeLayout.getVisibility()==View.GONE)
             {
                 relativeLayout.setVisibility(View.VISIBLE);
-                tabLayout.setVisibility(View.GONE);
                 toolbar.setVisibility(View.GONE);
             }
             return true;

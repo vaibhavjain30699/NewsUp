@@ -20,5 +20,18 @@ An app which provides you with all the general news and category news of 4 broad
   <li>Retrofit</li>
 </ul>
 
+# How to use
+Step 1:
+Clone the repository.
+```
+https://github.com/vaibhavjain30699/NewsUp.git
+```
+
+Step 2:
+Import the project into the Android Studio using **Open an Existing Project**.
+
+Step 3: 
+When the gradle build and indexing is done, click the **Run** button and run it on an emulator/physical device. 
+
 # Screenshots
 <img src="/screenshots/screenshot_1.jpg" width="200"/> <img src="/screenshots/screenshot_2.jpg" width="200"/> <img src="/screenshots/screenshot_3.jpg" width="200"/> <br>
